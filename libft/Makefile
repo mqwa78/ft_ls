@@ -9,6 +9,7 @@ SRCS = ./strings/ft_strlcpy.c \
 	   ./strings/ft_strjoin.c \
        ./strings/ft_substr.c \
 	   ./strings/ft_strdup.c \
+	   ./strings/ft_strndup.c \
 	   ./strings/ft_strrchr.c \
 	   ./strings/ft_strchr.c \
 	   ./strings/ft_strncmp.c \

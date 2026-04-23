@@ -3,6 +3,7 @@ SRCS = ./srcs/main.c \
 	   ./srcs/utils.c \
 	   ./srcs/sort.c \
 	   ./srcs/print_error.c \
+	   ./srcs/add_path.c \
 
 OBJS = $(SRCS:.c=.o)
 

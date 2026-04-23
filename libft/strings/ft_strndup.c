@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/22 07:53:06 by mqwa              #+#    #+#             */
-/*   Updated: 2026/04/23 12:10:05 by mqwa             ###   ########.fr       */
+/*   Created: 2026/04/23 12:05:46 by mqwa              #+#    #+#             */
+/*   Updated: 2026/04/23 12:06:13 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "libft.h"
 
-int	ft_cmp_time(t_file *a, t_file *b)
+char	*ft_strndup(const char *s, size_t n)
 {
-	if (a->st.st_mtime > b->st.st_mtime)
-		return (-1);
-	if (a->st.st_mtime < b->st.st_mtime)
-		return (1);
-	return (ft_strcmp(a->path, b->path));
-}
+	char	*dup;
+	size_t	i;
 
-void	ft_free_file(void *content)
-{
-	t_file	*file;
-
-	file = (t_file *)content;
-	if (!file)
-		return ;
-	if (file->path)
-		free(file->path);
-	if (file->name)
-		free(file->name);
-	free(file);
+	dup = malloc(n + 1);
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (i < n && s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }

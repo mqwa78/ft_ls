@@ -6,7 +6,7 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 08:07:28 by mqwa              #+#    #+#             */
-/*   Updated: 2026/04/22 13:59:42 by mqwa             ###   ########.fr       */
+/*   Updated: 2026/04/23 10:34:47 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FT_LS_H
 
 # include "libft.h"
+# include <errno.h>
+# include <stdio.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 
@@ -31,6 +33,8 @@ typedef struct s_opt
 typedef struct s_file
 {
 	char		*path;
+	char		*name;
+	int			error;
 	struct stat	st;
 }				t_file;
 

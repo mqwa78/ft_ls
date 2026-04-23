@@ -6,7 +6,7 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 08:16:04 by mqwa              #+#    #+#             */
-/*   Updated: 2026/04/22 11:38:53 by mqwa             ###   ########.fr       */
+/*   Updated: 2026/04/23 10:36:56 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 void	print_list(t_list *paths, t_opt *opt)
 {
 	t_list	*head;
+	t_file	*file;  // ← AJOUTER CETTE LIGNE
 
 	head = paths;
 	while (head)
 	{
-		ft_printf("%s\n", ((t_file *)head->content)->path);
+		file = (t_file *)head->content;  // ← AJOUTER CETTE LIGNE
+		printf("path: '%-20s' | name: '%-15s' | error: %d\n", 
+			file->path, file->name, file->error);
 		head = head->next;
 	}
 	ft_printf("opt_a : %d\n", opt->opt_a);
@@ -27,15 +30,6 @@ void	print_list(t_list *paths, t_opt *opt)
 	ft_printf("opt_rec : %d\n", opt->opt_rec);
 	ft_printf("opt_l : %d\n", opt->opt_l);
 	ft_printf("opt_t : %d\n", opt->opt_t);
-}
-
-int	ft_error_option(char c)
-{
-	ft_putstr_fd("ft_ls: invalid option -- '", 2);
-	ft_putchar_fd(c, 2);
-	ft_putendl_fd("'", 2);
-	ft_putendl_fd("Try 'ft_ls --help' for more information.", 2);
-	return (1);
 }
 
 int	ft_parse_option(char *arg, t_opt *opt)
