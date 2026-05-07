@@ -6,31 +6,11 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 08:16:04 by mqwa              #+#    #+#             */
-/*   Updated: 2026/04/23 10:36:56 by mqwa             ###   ########.fr       */
+/*   Updated: 2026/04/23 16:16:43 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-void	print_list(t_list *paths, t_opt *opt)
-{
-	t_list	*head;
-	t_file	*file;  // ← AJOUTER CETTE LIGNE
-
-	head = paths;
-	while (head)
-	{
-		file = (t_file *)head->content;  // ← AJOUTER CETTE LIGNE
-		printf("path: '%-20s' | name: '%-15s' | error: %d\n", 
-			file->path, file->name, file->error);
-		head = head->next;
-	}
-	ft_printf("opt_a : %d\n", opt->opt_a);
-	ft_printf("opt_r : %d\n", opt->opt_r);
-	ft_printf("opt_rec : %d\n", opt->opt_rec);
-	ft_printf("opt_l : %d\n", opt->opt_l);
-	ft_printf("opt_t : %d\n", opt->opt_t);
-}
 
 int	ft_parse_option(char *arg, t_opt *opt)
 {
@@ -96,10 +76,9 @@ int	ft_ls(int ac, char **av, t_opt *opt)
 		ft_lstclear(&paths, ft_free_file);
 		return (EXIT_STATUS);
 	}
-	//ret = ft_proceed(opt, paths);
-	ret = 0;
-	paths = ft_sort(paths, opt);
-	print_list(paths, opt);
+	ret = ft_proceed(opt, paths);
 	ft_lstclear(&paths, ft_free_file);
-	return (ret);
+	if (ret)
+		return (EXIT_STATUS);
+	return (EXIT_SUCCESS);
 }

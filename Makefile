@@ -1,9 +1,14 @@
 SRCS = ./srcs/main.c \
        ./srcs/ft_ls.c \
 	   ./srcs/utils.c \
+	   ./srcs/utils_long.c \
 	   ./srcs/sort.c \
 	   ./srcs/print_error.c \
 	   ./srcs/add_path.c \
+	   ./srcs/proceed.c \
+	   ./srcs/ft_opendir.c \
+	   ./srcs/ft_display.c \
+	   ./srcs/ft_display_long.c \
 
 OBJS = $(SRCS:.c=.o)
 

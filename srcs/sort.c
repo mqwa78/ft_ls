@@ -6,7 +6,7 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 11:37:18 by mqwa              #+#    #+#             */
-/*   Updated: 2026/04/22 12:02:32 by mqwa             ###   ########.fr       */
+/*   Updated: 2026/04/23 16:23:13 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ t_list	*ft_sort(t_list *list, t_opt *opt)
 {
 	t_list	*sorted;
 
+	if (!list)
+		return (NULL);
 	if (opt->opt_t)
 		sorted = sort_list(list, ft_sorted_insert_time);
 	else

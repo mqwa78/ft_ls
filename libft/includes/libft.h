@@ -6,7 +6,7 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:46:35 by mqwa              #+#    #+#             */
-/*   Updated: 2026/04/23 12:06:36 by mqwa             ###   ########.fr       */
+/*   Updated: 2026/04/26 17:04:31 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ typedef struct s_list
 //		PRINT
 
 void	ft_putchar_fd(char c, int fd);
+void	ft_putnchar_fd(char c, size_t n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_putlld(long long n);
 
 //		MEMORY
 
@@ -73,7 +75,9 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_atoi(const char *nptr);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+char	*ft_strcpy(char *dest, const char *src);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
+char	*ft_strcat(char *dest, const char *src);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 //		LIST

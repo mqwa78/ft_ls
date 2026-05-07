@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_putnchar_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 11:45:47 by mqwa              #+#    #+#             */
-/*   Updated: 2026/04/23 21:06:16 by mqwa             ###   ########.fr       */
+/*   Created: 2026/04/26 16:59:39 by mqwa              #+#    #+#             */
+/*   Updated: 2026/04/26 17:05:18 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_putnchar_fd(char c, size_t n, int fd)
 {
-	t_list	*tmp;
+	size_t	i;
 
-	if (!lst)
-		return ;
-	while (*lst)
+	i = 0;
+	while (i < n)
 	{
-		tmp = (*lst)->next;
-		if (del)
-			del((*lst)->content);
-		free(*lst);
-		*lst = tmp;
+		ft_putchar_fd(c, fd);
+		i++;
 	}
-	*lst = NULL;
 }

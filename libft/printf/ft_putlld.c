@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_putlld.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 11:45:47 by mqwa              #+#    #+#             */
-/*   Updated: 2026/04/23 21:06:16 by mqwa             ###   ########.fr       */
+/*   Created: 2026/04/24 22:43:20 by mqwa              #+#    #+#             */
+/*   Updated: 2026/04/24 23:18:07 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_putlld(long long n)
 {
-	t_list	*tmp;
-
-	if (!lst)
-		return ;
-	while (*lst)
+	if (n == -9223372036854775807LL - 1)
+		write(1, "-9223372036854775808", 20);
+	if (n < 0)
 	{
-		tmp = (*lst)->next;
-		if (del)
-			del((*lst)->content);
-		free(*lst);
-		*lst = tmp;
+		ft_putchar('-');
+		n = -n;
 	}
-	*lst = NULL;
+	if (n >= 10)
+		ft_putlld(n / 10);
+	ft_putchar((n % 10) + '0');
 }
